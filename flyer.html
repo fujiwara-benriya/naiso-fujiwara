@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ふじわら内装 — 営業チラシ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f0efec;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    /* A4印刷用 */
+    @media print {
+      body { background: white; padding: 0; }
+      .flyer { box-shadow: none; }
+      .print-btn { display: none; }
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: #1B3454;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+    }
+
+    .flyer {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ヘッダー帯 */
+    .flyer-header {
+      background: #1B3454;
+      color: white;
+      padding: 28px 32px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .flyer-brand {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .flyer-brand small {
+      display: block;
+      font-size: 11px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      opacity: 0.7;
+      margin-top: 4px;
+      letter-spacing: 0.08em;
+    }
+    .flyer-tel {
+      text-align: right;
+    }
+    .flyer-tel a {
+      color: white;
+      text-decoration: none;
+      font-size: 26px;
+      font-weight: 700;
+      display: block;
+    }
+    .flyer-tel small {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    /* キャッチ */
+    .flyer-catch {
+      background: #6B4E1E;
+      color: white;
+      text-align: center;
+      padding: 16px 24px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* 本体 */
+    .flyer-body {
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    /* 強み */
+    .points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .point {
+      background: #F0EFEC;
+      border-radius: 6px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .point-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1B3454;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .point-num span { font-size: 13px; font-weight: 400; color: #5A5A58; }
+    .point-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2C2C2A;
+      margin-bottom: 4px;
+    }
+    .point-desc { font-size: 12px; color: #3A3A38; line-height: 1.6; }
+
+    /* サービス表 */
+    .service-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B3454;
+      border-left: 4px solid #9B7B4B;
+      padding-left: 10px;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    th {
+      background: #1B3454;
+      color: white;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 500;
+    }
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #E4E1DB;
+      color: #2C2C2A;
+    }
+    tr:nth-child(even) td { background: #F7F6F4; }
+    td:last-child { color: #6B4E1E; font-weight: 700; }
+
+    /* エリア */
+    .area-box {
+      background: #F0EFEC;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #5A5A58;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .area-box strong { color: #1B3454; }
+
+    /* QRコード */
+    .qr-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1.5px solid #E4E1DB;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .qr-placeholder {
+      width: 80px;
+      height: 80px;
+      background: #F0EFEC;
+      border: 1px dashed #6B4E1E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #6B4E1E;
+      text-align: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .qr-text h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B3454;
+      margin-bottom: 4px;
+    }
+    .qr-url {
+      font-size: 12px;
+      color: #5A5A58;
+      word-break: break-all;
+      margin-bottom: 6px;
+    }
+    .qr-desc { font-size: 12px; color: #5A5A58; line-height: 1.7; }
+
+    /* フッター */
+    .flyer-footer {
+      background: #2C2C2A;
+      color: rgba(255,255,255,0.85);
+      padding: 14px 32px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">印刷する</button>
+
+  <div class="flyer">
+    <!-- ヘッダー -->
+    <div class="flyer-header">
+      <div class="flyer-brand">
+        ふじわら内装
+        <small>FUJIWARA INTERIOR WORKS</small>
+      </div>
+      <div class="flyer-tel">
+        <!-- TODO: 電話番号を変更 -->
+        <a href="tel:090-XXXX-XXXX">090-XXXX-XXXX</a>
+        <small>受付 8:00〜19:00（年中無休）</small>
+      </div>
+    </div>
+
+    <!-- キャッチコピー -->
+    <div class="flyer-catch">
+      クロス・フローリング・塗装　内装工事はおまかせください
+    </div>
+
+    <!-- 本文 -->
+    <div class="flyer-body">
+
+      <!-- 3つの強み -->
+      <div class="points">
+        <div class="point">
+          <div class="point-num">当日〜<span>翌日</span></div>
+          <div class="point-title">スピード見積もり</div>
+          <div class="point-desc">お問い合わせ当日または翌日に現地調査します</div>
+        </div>
+        <div class="point">
+          <div class="point-num">無料<span>調査</span></div>
+          <div class="point-title">現地調査・見積もり無料</div>
+          <div class="point-desc">費用は明記してお渡し。追加請求なし</div>
+        </div>
+        <div class="point">
+          <div class="point-num">地元<span>密着</span></div>
+          <div class="point-title">福山市を中心に対応</div>
+          <div class="point-desc">尾道市・笠岡市など近隣エリアも対応</div>
+        </div>
+      </div>
+
+      <!-- サービス一覧 -->
+      <div class="service-title">対応できる内装工事</div>
+      <table>
+        <tr>
+          <th>工事内容</th>
+          <th>概要</th>
+          <th>目安価格</th>
+        </tr>
+        <tr>
+          <td>クロス・壁紙張替え</td>
+          <td>6畳〜1室から対応。サンプル多数</td>
+          <td>¥18,000〜</td>
+        </tr>
+        <tr>
+          <td>フローリング・床工事</td>
+          <td>張替え・重ね張り・フロアタイル</td>
+          <td>¥35,000〜</td>
+        </tr>
+        <tr>
+          <td>室内塗装</td>
+          <td>壁・天井の塗り替え</td>
+          <td>要相談</td>
+        </tr>
+        <tr>
+          <td>賃貸・原状回復工事</td>
+          <td>退去後の全般的な復旧工事</td>
+          <td>要相談</td>
+        </tr>
+        <tr>
+          <td>店舗・事務所の内装</td>
+          <td>開業・改装・閉店後の原状回復</td>
+          <td>要相談</td>
+        </tr>
+        <tr>
+          <td>部分補修・小口工事</td>
+          <td>1か所からの小規模補修</td>
+          <td>要相談</td>
+        </tr>
+      </table>
+
+      <!-- 対応エリア -->
+      <div class="area-box">
+        📍 <strong>対応エリア：</strong>福山市・尾道市・笠岡市・三原市ほか近隣
+      </div>
+
+      <!-- HPのQRコード -->
+      <div class="qr-section">
+        <div class="qr-placeholder">QRコード<br>を配置</div>
+        <div class="qr-text">
+          <h3>施工事例・詳細はWebサイトで</h3>
+          <div class="qr-url">https://fujiwara-benriya.github.io/naiso-fujiwara/</div>
+          <div class="qr-desc">
+            施工事例写真・工事の流れ・お問い合わせフォームは<br>
+            Webサイトでご確認いただけます。<br>
+            LINEでの問い合わせも受け付けています。
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- フッター -->
+    <div class="flyer-footer">
+      <span>ふじわら内装　広島県福山市</span>
+      <span>fujiwara-benriya.github.io/naiso-fujiwara</span>
+    </div>
+  </div>
+
+</body>
+</html>
