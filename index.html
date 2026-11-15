@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="ふじわら内装 | 福山市の内装工事専門店">
+  <meta property="og:description" content="広島県福山市の内装工事専門店ふじわら内装。壁紙・フローリング・クロス張替えなどお気軽にご相談ください。">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://fujiwara-benriya.github.io/naiso-fujiwara/">
   <meta name="description" content="ふじわら内装｜広島県福山市の内装工事専門店。クロス・壁紙張替え、フローリング、塗装など住宅・店舗のリフォームはお任せください。">
   <title>ふじわら内装｜福山市の内装工事・リフォーム専門店</title>
 
@@ -464,6 +468,39 @@
     }
     .form-submit:hover { background: var(--navy-mid); }
 
+    .contact-line-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .line-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+    .line-floating-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #06C755;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .line-floating-button:hover { color: #fff; opacity: 0.9; }
+
     /* ===== フッター ===== */
     footer {
       background: var(--ink);
@@ -530,6 +567,11 @@
       .hero h1 { font-size: 26px; }
       .hero-actions { flex-direction: column; }
       .btn-primary, .btn-outline { text-align: center; }
+      .line-floating-button {
+        right: 12px;
+        bottom: 12px;
+        padding: 12px 16px;
+      }
     }
 
     /* ===== アクセシビリティ ===== */
@@ -733,6 +775,13 @@
         <div class="contact-phone">
           <div class="contact-phone-label">お電話でのお問い合わせ</div>
           <a href="tel:090-XXXX-XXXX">090-XXXX-XXXX</a>
+          <div class="contact-line-note">
+            <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="12" fill="#06C755"/>
+              <path d="M18.5 11.4c0-3-2.9-5.4-6.5-5.4s-6.5 2.4-6.5 5.4c0 2.7 2.4 4.9 5.6 5.3.2 0 .5.1.5.3.1.2 0 .5 0 .7l-.1.6c0 .2-.2.8.6.4.8-.3 4.2-2.5 5.7-4.3.5-.8.7-1.8.7-3z" fill="#fff"/>
+            </svg>
+            <span>LINEでも受け付けています</span>
+          </div>
           <div class="contact-phone-hours">受付時間：8:00〜19:00（年中無休）</div>
         </div>
 
@@ -806,6 +855,14 @@
     </div>
     <div class="footer-copy">© 2025 ふじわら内装 All rights reserved.</div>
   </footer>
+
+  <a class="line-floating-button" href="https://line.me/R/ti/p/XXXXXXXXXX" aria-label="LINEで問い合わせ">
+    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#fff"/>
+      <path d="M18.5 11.4c0-3-2.9-5.4-6.5-5.4s-6.5 2.4-6.5 5.4c0 2.7 2.4 4.9 5.6 5.3.2 0 .5.1.5.3.1.2 0 .5 0 .7l-.1.6c0 .2-.2.8.6.4.8-.3 4.2-2.5 5.7-4.3.5-.8.7-1.8.7-3z" fill="#06C755"/>
+    </svg>
+    <span>LINEで問い合わせ</span>
+  </a>
 
 </body>
 </html>
