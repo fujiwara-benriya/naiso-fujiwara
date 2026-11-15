@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ふじわら内装｜広島県福山市の内装工事専門店。クロス・壁紙張替え、フローリング、塗装など住宅・店舗のリフォームはお任せください。">
+  <title>ふじわら内装｜福山市の内装工事・リフォーム専門店</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== トークン ===== */
+    :root {
+      --white:    #F7F6F4;
+      --navy:     #1B3454;
+      --navy-mid: #2A4A6E;
+      --wood:     #9B7B4B;
+      --ink:      #2C2C2A;
+      --ink-soft: #5A5A58;
+      --stone:    #E4E1DB;
+      --stone-lt: #F0EFEC;
+
+      --serif: 'Noto Serif JP', serif;
+      --sans:  'Noto Sans JP', sans-serif;
+
+      --r-sm: 4px;
+      --r-md: 8px;
+    }
+
+    /* ===== リセット ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== 電話固定バー ===== */
+    .top-bar {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-family: var(--sans);
+    }
+    .top-bar a {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .top-bar span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    /* ===== ヘッダー ===== */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--stone);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .logo small {
+      display: block;
+      font-size: 11px;
+      font-family: var(--sans);
+      font-weight: 400;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+    }
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      font-family: var(--sans);
+    }
+    nav a {
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--navy); }
+    .header-cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--r-sm);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--navy-mid); color: #fff; }
+
+    /* ===== ヒーロー ===== */
+    .hero {
+      background: var(--navy);
+      color: #fff;
+      padding: 72px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-family: var(--sans);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--wood);
+      margin-bottom: 16px;
+      border-left: 3px solid var(--wood);
+      padding-left: 10px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .hero-lead {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.80);
+      max-width: 44ch;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--wood);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--r-sm);
+      font-weight: 700;
+      font-size: 15px;
+      transition: opacity 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 14px 28px;
+      border-radius: var(--r-sm);
+      font-size: 15px;
+      transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* ヒーロー右側：施工写真モックグリッド */
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 180px 120px;
+      gap: 8px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .hero-img-main {
+      grid-column: 1 / 3;
+      background: var(--navy-mid);
+      border-radius: var(--r-md) var(--r-md) 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-img-sub {
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-img-sub:last-child { border-radius: 0 0 var(--r-md) 0; }
+    .hero-img-sub:nth-child(3) { border-radius: 0 0 0 var(--r-md); }
+
+    /* 写真プレースホルダー注記 */
+    .photo-note {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+
+    /* ===== セクション共通 ===== */
+    section { padding: 72px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-family: var(--sans);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--wood);
+      border-left: 3px solid var(--wood);
+      padding-left: 10px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 48ch;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    /* ===== 強み3つ ===== */
+    .strength-bg { background: var(--stone-lt); }
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--stone);
+      border: 1px solid var(--stone);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .strength-item {
+      background: var(--white);
+      padding: 36px 28px;
+    }
+    .strength-num {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .strength-num span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      margin-left: 4px;
+    }
+    .strength-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .strength-body {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    /* ===== サービス ===== */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      border: 1.5px solid var(--stone);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background: #fff;
+    }
+    .service-photo {
+      height: 160px;
+      background: var(--stone-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--stone);
+    }
+    .service-body { padding: 20px 22px; }
+    .service-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+    .service-price {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--wood);
+      font-weight: 700;
+      border-bottom: 1px solid var(--wood);
+      padding-bottom: 2px;
+    }
+
+    /* ===== 施工の流れ ===== */
+    .flow-bg { background: var(--navy); color: #fff; }
+    .flow-bg .section-title { color: #fff; }
+    .flow-bg .section-desc { color: rgba(255,255,255,0.65); }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .flow-step {
+      text-align: center;
+      padding: 20px 12px;
+      position: relative;
+    }
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background: rgba(255,255,255,0.15);
+    }
+    .flow-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1.5px solid var(--wood);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 22px;
+    }
+    .flow-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .flow-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ===== お問い合わせ ===== */
+    .contact-bg { background: var(--stone-lt); }
+    .contact-box {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--r-md);
+      padding: 48px 40px;
+    }
+    .contact-box .section-title { text-align: center; margin-bottom: 8px; }
+    .contact-box .section-desc { text-align: center; margin: 0 auto 36px; }
+    .contact-phone {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--stone);
+    }
+    .contact-phone-label {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+    .contact-phone a {
+      display: block;
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+    }
+    .contact-phone-hours {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+    .form-row { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .form-label .req {
+      font-size: 11px;
+      color: #c0392b;
+      margin-left: 4px;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--stone);
+      border-radius: var(--r-sm);
+      font-size: 15px;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+    .form-textarea { height: 120px; resize: vertical; }
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: var(--r-sm);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: var(--sans);
+    }
+    .form-submit:hover { background: var(--navy-mid); }
+
+    /* ===== フッター ===== */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.65);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 24px;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-info { font-size: 13px; line-height: 1.9; }
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .footer-links {
+      list-style: none;
+      font-size: 13px;
+    }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy {
+      text-align: center;
+      font-size: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 20px 56px;
+      }
+      .hero-visual { display: none; }
+      .strength-grid { grid-template-columns: 1fr; }
+      .flow-steps {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .flow-step::after { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      nav { display: none; }
+      .contact-box { padding: 32px 20px; }
+      .contact-phone a { font-size: 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; }
+    }
+
+    /* ===== アクセシビリティ ===== */
+    :focus-visible {
+      outline: 3px solid var(--wood);
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 電話バー -->
+  <div class="top-bar">
+    <a href="tel:090-XXXX-XXXX">📞 090-XXXX-XXXX</a>
+    <span>受付時間 8:00〜19:00（年中無休）</span>
+  </div>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="logo">
+      ふじわら内装
+      <small>FUJIWARA INTERIOR WORKS / 広島県福山市</small>
+    </div>
+    <nav>
+      <a href="#service">施工内容</a>
+      <a href="#flow">工事の流れ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <a href="#contact" class="header-cta">無料見積もり</a>
+  </header>
+
+  <!-- ヒーロー -->
+  <div style="background: var(--navy);">
+    <div class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">福山市・尾道市・笠岡市 対応</p>
+        <h1>職人の手で、<br>空間を新しくする。</h1>
+        <p class="hero-lead">
+          クロス張替えからフローリング・塗装まで、<br>
+          住宅・店舗の内装工事をトータルでお任せください。<br>
+          現地調査・お見積もりは無料です。
+        </p>
+        <div class="hero-actions">
+          <a href="tel:090-XXXX-XXXX" class="btn-primary">今すぐ電話する</a>
+          <a href="#contact" class="btn-outline">無料見積もりを依頼</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-visual">
+          <div class="hero-img-main">
+            <!-- 施工写真（壁紙張替え・ビフォーアフター）を入れてください -->
+            施工写真を配置
+          </div>
+          <div class="hero-img-sub">施工写真②</div>
+          <div class="hero-img-sub">施工写真③</div>
+        </div>
+        <p class="photo-note">※ 実際の施工写真に差し替えてください</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 強み -->
+  <section class="strength-bg">
+    <div class="container">
+      <p class="section-label">選ばれる理由</p>
+      <h2 class="section-title">ふじわら内装が選ばれる<br>3つの理由</h2>
+      <div class="strength-grid">
+        <div class="strength-item">
+          <div class="strength-num">20<span>年以上</span></div>
+          <div class="strength-title">地元福山市の施工実績</div>
+          <div class="strength-body">福山市・尾道市・笠岡市を中心に、住宅から店舗まで幅広い内装工事を手がけてきました。地元ならではの迅速な対応が強みです。</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">当日〜<span>翌日対応</span></div>
+          <div class="strength-title">スピード見積もり</div>
+          <div class="strength-body">お問い合わせいただいた当日または翌日に現地調査を実施。見積もりから工事着工まで最短スケジュールで進めます。</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">明朗<span>会計</span></div>
+          <div class="strength-title">追加費用なし</div>
+          <div class="strength-body">見積もり時点ですべての費用を明示します。後から追加請求することは一切ありません。ご納得いただいてから着工します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス -->
+  <section id="service">
+    <div class="container">
+      <p class="section-label">施工内容</p>
+      <h2 class="section-title">対応できる内装工事</h2>
+      <p class="section-desc">住宅・賃貸物件・店舗の内装工事を幅広くお受けしています。まずはお気軽にご相談ください。</p>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-photo">クロス張替えの施工写真</div>
+          <div class="service-body">
+            <div class="service-name">クロス・壁紙張替え</div>
+            <div class="service-desc">汚れや剥がれが気になる壁紙を張り替えます。サンプル多数ご用意。6畳1室から対応可能です。</div>
+            <div class="service-price">6畳〜 ¥18,000〜（材工込）</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-photo">フローリング施工写真</div>
+          <div class="service-body">
+            <div class="service-name">フローリング・床工事</div>
+            <div class="service-desc">フローリングの張替え・重ね張り・フロアタイルなど。傷・変色・きしみもご相談ください。</div>
+            <div class="service-price">6畳〜 ¥35,000〜（材工込）</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-photo">室内塗装の施工写真</div>
+          <div class="service-body">
+            <div class="service-name">室内塗装</div>
+            <div class="service-desc">壁・天井の塗り替え。クロスに比べ耐久性が高く、スタイリッシュな仕上がりになります。</div>
+            <div class="service-price">ご相談ください</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-photo">原状回復工事の写真</div>
+          <div class="service-body">
+            <div class="service-name">賃貸・原状回復工事</div>
+            <div class="service-desc">退去時の原状回復工事をまとめてお受けします。管理会社・オーナー様からのご依頼も歓迎します。</div>
+            <div class="service-price">部屋全体もご相談ください</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-photo">店舗内装の施工写真</div>
+          <div class="service-body">
+            <div class="service-name">店舗・事務所の内装</div>
+            <div class="service-desc">開業・改装・閉店後の原状回復まで対応。工期・予算に合わせてご提案します。</div>
+            <div class="service-price">規模によりご相談ください</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-photo">部分補修の施工写真</div>
+          <div class="service-body">
+            <div class="service-name">部分補修・小口工事</div>
+            <div class="service-desc">「1カ所だけ直したい」「小さな傷を補修したい」など、小規模なご依頼もお受けしています。</div>
+            <div class="service-price">小口工事も対応します</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 施工の流れ -->
+  <section id="flow" class="flow-bg">
+    <div class="container">
+      <p class="section-label" style="color: var(--wood);">工事の流れ</p>
+      <h2 class="section-title">ご依頼からお引き渡しまで</h2>
+      <p class="section-desc">初めてのご依頼でも安心して進められるよう、丁寧にご説明しながら進めます。</p>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-icon">📞</div>
+          <div class="flow-name">お問い合わせ</div>
+          <div class="flow-note">電話・フォームどちらでも。内容を簡単にお聞きします。</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🏠</div>
+          <div class="flow-name">現地調査・無料見積もり</div>
+          <div class="flow-note">お伺いして状況を確認。費用を明記した見積もりをお渡しします。</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">📋</div>
+          <div class="flow-name">ご確認・ご契約</div>
+          <div class="flow-note">内容・金額にご納得いただいてからご契約。変更もご相談ください。</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🔨</div>
+          <div class="flow-name">施工</div>
+          <div class="flow-note">丁寧・迅速に工事を進めます。進捗はその都度ご報告します。</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">✅</div>
+          <div class="flow-name">お引き渡し・お支払い</div>
+          <div class="flow-note">仕上がりをご確認いただいてからお支払い。アフターフォローもご相談ください。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="contact-bg">
+    <div class="container">
+      <div class="contact-box">
+        <p class="section-label" style="margin: 0 auto 16px; width: fit-content;">お問い合わせ・無料見積もり</p>
+        <h2 class="section-title">まずはお気軽にご連絡ください</h2>
+        <p class="section-desc">見積もり・調査は無料です。お気軽にどうぞ。</p>
+
+        <div class="contact-phone">
+          <div class="contact-phone-label">お電話でのお問い合わせ</div>
+          <a href="tel:090-XXXX-XXXX">090-XXXX-XXXX</a>
+          <div class="contact-phone-hours">受付時間：8:00〜19:00（年中無休）</div>
+        </div>
+
+        <!-- フォームはFormspree等の無料サービスを使う場合はaction属性を設定 -->
+        <form action="#" method="POST">
+          <div class="form-row">
+            <label class="form-label" for="name">お名前<span class="req">必須</span></label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="tel">電話番号<span class="req">必須</span></label>
+            <input class="form-input" type="tel" id="tel" name="tel" placeholder="090-0000-0000" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="email">メールアドレス</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="example@example.com">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="service">ご相談内容<span class="req">必須</span></label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="" disabled selected>選択してください</option>
+              <option>クロス・壁紙張替え</option>
+              <option>フローリング・床工事</option>
+              <option>室内塗装</option>
+              <option>賃貸・原状回復工事</option>
+              <option>店舗・事務所の内装</option>
+              <option>部分補修・小口工事</option>
+              <option>その他・まだわからない</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="message">詳しい内容・ご希望</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="場所・広さ・気になっている点など、わかる範囲でお書きください。"></textarea>
+          </div>
+          <button type="submit" class="form-submit">送信する（無料見積もりを依頼）</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">ふじわら内装</div>
+        <div class="footer-info">
+          広島県福山市<br>
+          TEL: 090-XXXX-XXXX<br>
+          受付時間: 8:00〜19:00（年中無休）<br>
+          対応エリア: 福山市・尾道市・笠岡市ほか
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">施工内容</div>
+        <ul class="footer-links">
+          <li><a href="#service">クロス・壁紙張替え</a></li>
+          <li><a href="#service">フローリング・床工事</a></li>
+          <li><a href="#service">室内塗装</a></li>
+          <li><a href="#service">賃貸・原状回復工事</a></li>
+          <li><a href="#service">店舗・事務所の内装</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">サイト内</div>
+        <ul class="footer-links">
+          <li><a href="#service">施工内容</a></li>
+          <li><a href="#flow">工事の流れ</a></li>
+          <li><a href="#contact">無料見積もり・お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 ふじわら内装 All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
